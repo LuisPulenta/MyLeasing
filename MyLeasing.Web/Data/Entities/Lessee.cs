@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+
 namespace MyLeasing.Web.Data.Entities
 {
-    public class Owner
+    public class Lessee
     {
         public int Id { get; set; }
 
@@ -33,13 +34,12 @@ namespace MyLeasing.Web.Data.Entities
         [MaxLength(100, ErrorMessage = "El campo {0} no puede tener más de {1} caracteres.")]
         public string Address { get; set; }
 
-        [Display(Name = "Propietario")]
+        [Display(Name = "Locatario")]
         public string FullName => $"{FirstName} {LastName}";
 
-        [Display(Name = "Propietario y Documento")]
+        [Display(Name = "Locatario y Documento")]
         public string FullNameWithDocument => $"{FirstName} {LastName} - {Document}";
-        public ICollection<Property> Properties { get; set; }
-        public ICollection<Contract> Contracts { get; set; }
 
+        public ICollection<Contract> Contracts { get; set; }
     }
 }
