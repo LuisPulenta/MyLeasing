@@ -6,12 +6,13 @@ namespace MyLeasing.Web.Data.Entities
         public int Id { get; set; }
 
         [Display(Name = "Foto")]
-        [Required(ErrorMessage = "El campo {0} es requerido.")]
         public string ImageUrl { get; set; }
 
         public Property Property { get; set; }
 
         // TODO: Change the path when publish
-        public string ImageFullPath => $"http://keypress.serveftp.net:88/MyLeasingApi{ImageUrl.Substring(1)}";
+        public string ImageFullPath => string.IsNullOrEmpty(ImageUrl)
+            ? null
+            : $"http://keypress.serveftp.net:88/MyLeasingApi{ImageUrl.Substring(1)}";
     }
 }

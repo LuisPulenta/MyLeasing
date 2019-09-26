@@ -28,5 +28,21 @@ namespace MyLeasing.Web.Helpers
             });
             return list;
         }
+
+        public IEnumerable<SelectListItem> GetComboLessees()
+        {
+            var list = _dataContext.Lessees.Select(l => new SelectListItem
+            {
+                Text = l.User.FullNameWithDocument,
+                Value = $"{l.Id}"
+            }).OrderBy(p => p.Text).ToList();
+
+            list.Insert(0, new SelectListItem
+            {
+                Text = "(Elija Locatario...)",
+                Value = "0"
+            });
+            return list;
+        }
     }
 }
