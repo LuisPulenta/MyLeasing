@@ -50,7 +50,7 @@
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id" class=" btn btn-warning">Edit</a>
-    <a asp-action="Add Property" asp-route-id="@Model.Id" class=" btn btn-primary">Add Property</a>
+    <a asp-action="AddProperty" asp-route-id="@Model.Id" class=" btn btn-primary">Add Property</a>
     <a asp-action="Index" class=" btn btn-success">Back to List</a>
 </div>
 
@@ -78,6 +78,15 @@ else
                 <th>
                     @Html.DisplayNameFor(model => model.Properties.FirstOrDefault().Rooms)
                 </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Properties.FirstOrDefault().IsAvailable)
+                </th>
+                <th>
+                    Images
+                </th>
+                <th>
+                    Contracts
+                </th>
                 <th></th>
             </tr>
         </thead>
@@ -99,6 +108,15 @@ else
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Rooms)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsAvailable)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PropertyImages.Count)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contracts.Count)
                 </td>
 
                 <td>
