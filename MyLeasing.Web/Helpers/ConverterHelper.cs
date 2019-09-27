@@ -38,21 +38,6 @@ namespace MyLeasing.Web.Helpers
                 Stratum = model.Stratum,
             };
         }
-        public async Task<Contract> ToContractAsync(ContractViewModel model, bool isNew)
-        {
-            return new Contract
-            {
-                EndDate = model.EndDate.ToUniversalTime(),
-                IsActive = model.IsActive,
-                Lessee = await _dataContext.Lessees.FindAsync(model.LesseeId),
-                Owner = await _dataContext.Owners.FindAsync(model.OwnerId),
-                Price = model.Price,
-                Property = await _dataContext.Properties.FindAsync(model.PropertyId),
-                Remarks = model.Remarks,
-                StartDate = model.StartDate.ToUniversalTime(),
-                Id = isNew ? 0 : model.Id
-            };
-        }
 
         public PropertyViewModel ToPropertyViewModel(Property property)
         {
@@ -75,6 +60,42 @@ namespace MyLeasing.Web.Helpers
                 OwnerId = property.Owner.Id,
                 PropertyTypeId = property.PropertyType.Id,
                 PropertyTypes = _combosHelper.GetComboPropertyTypes()
+            };
+        }
+
+        public async Task<Contract> ToContractAsync(ContractViewModel model, bool isNew)
+        {
+            return new Contract
+            {
+                EndDate = model.EndDate.ToUniversalTime(),
+                IsActive = model.IsActive,
+                Lessee = await _dataContext.Lessees.FindAsync(model.LesseeId),
+                Owner = await _dataContext.Owners.FindAsync(model.OwnerId),
+                Price = model.Price,
+                Property = await _dataContext.Properties.FindAsync(model.PropertyId),
+                Remarks = model.Remarks,
+                StartDate = model.StartDate.ToUniversalTime(),
+                Id = isNew ? 0 : model.Id
+            };
+        }
+
+        public ContractViewModel ToContractViewModel(Contract contract)
+        {
+            return new ContractViewModel
+            {
+                EndDate = contract.EndDate.ToLocalTime(),
+                IsActive = contract.IsActive,
+                Lessee = contract.Lessee,
+                Owner = contract.Owner,
+                Price = contract.Price,
+                Property = contract.Property,
+                Remarks = contract.Remarks,
+                StartDate = contract.StartDate.ToLocalTime(),
+                Id = contract.Id,
+                LesseeId=contract.Lessee.Id,
+                Lessees=_combosHelper.GetComboLessees(),
+                OwnerId=contract.Owner.Id,
+                PropertyId=contract.Property.Id,
             };
         }
     }
