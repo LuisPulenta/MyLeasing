@@ -1,20 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MyLeasing.Web.Data;
 using MyLeasing.Web.Data.Entities;
 using MyLeasing.Web.Helpers;
 using MyLeasing.Web.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace MyLeasing.Web.Controllers
 {
-    [Authorize(Roles ="Manager")]
+    [Authorize(Roles = "Manager")]
     public class OwnersController : Controller
     {
         private readonly DataContext _dataContext;
@@ -57,7 +56,7 @@ namespace MyLeasing.Web.Controllers
             var owner = await _dataContext.Owners
                 .Include(o => o.User)
                 .Include(o => o.Properties)
-                .ThenInclude (p => p.PropertyImages)
+                .ThenInclude(p => p.PropertyImages)
                 .Include(o => o.Contracts)
                 .ThenInclude(c => c.Lessee)
                 .ThenInclude(l => l.User)
@@ -199,7 +198,7 @@ namespace MyLeasing.Web.Controllers
                 return NotFound();
             }
 
-            if (owner.Properties.Count !=0)
+            if (owner.Properties.Count != 0)
             {
                 ModelState.AddModelError(string.Empty, "No se puede borrar el Usuario porque tiene Propiedades.");
                 return RedirectToAction(nameof(Index));
@@ -244,7 +243,7 @@ namespace MyLeasing.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var property = await _converterHelper.ToPropertyAsync(view,true);
+                var property = await _converterHelper.ToPropertyAsync(view, true);
                 _dataContext.Properties.Add(property);
                 await _dataContext.SaveChangesAsync();
                 return RedirectToAction($"{nameof(Details)}/{view.OwnerId}");
@@ -261,9 +260,9 @@ namespace MyLeasing.Web.Controllers
             }
 
             var property = await _dataContext.Properties
-                .Include(p=>p.Owner)
+                .Include(p => p.Owner)
                 .Include(p => p.PropertyType)
-                .FirstOrDefaultAsync(p=> p.Id ==id);
+                .FirstOrDefaultAsync(p => p.Id == id);
             if (property == null)
             {
                 return NotFound();
@@ -390,7 +389,7 @@ namespace MyLeasing.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var contract = await _converterHelper.ToContractAsync(model,true);
+                var contract = await _converterHelper.ToContractAsync(model, true);
                 _dataContext.Contracts.Add(contract);
                 await _dataContext.SaveChangesAsync();
                 return RedirectToAction($"{nameof(DetailsProperty)}/{model.PropertyId}");
@@ -490,7 +489,7 @@ namespace MyLeasing.Web.Controllers
                 return NotFound();
             }
 
-            if (property.Contracts.Count!=0)
+            if (property.Contracts.Count != 0)
             {
                 ModelState.AddModelError(string.Empty, "La propiedad no se puede borrar porque tiene Contratos asociados");
                 return RedirectToAction($"{nameof(Details)}/{property.Owner.Id}");
