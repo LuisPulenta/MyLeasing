@@ -4,7 +4,7 @@ namespace MyLeasing.Common.Services
 {
     public interface IApiService
     {
-        Task<Response<OwnerResponse>> GetOwnerByEmail(
+        Task<Response<OwnerResponse>> GetOwnerByEmailAsync(
             string urlBase,
             string servicePrefix,
             string controller,
@@ -16,5 +16,6 @@ namespace MyLeasing.Common.Services
             string servicePrefix,
             string controller,
             TokenRequest request);
+        Task<bool> CheckConnectionAsync(string url);
     }
 }
