@@ -13,6 +13,6 @@ namespace MyLeasing.Web.Data.Entities
         // TODO: Change the path when publish
         public string ImageFullPath => string.IsNullOrEmpty(ImageUrl)
             ? null
-            : $"http://keypress.serveftp.net:88/MyLeasingApi{ImageUrl.Substring(1)}";
+            : $"http://keypress.serveftp.net:88/MyLeasing{ImageUrl.Substring(1)}";
     }
 }
