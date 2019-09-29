@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+
 namespace MyLeasing.Common.Models
 {
     public class PropertyResponse
@@ -16,5 +18,8 @@ namespace MyLeasing.Common.Models
         public string PropertyType { get; set; }
         public ICollection<PropertyImageResponse> PropertyImages { get; set; }
         public ICollection<ContractResponse> Contracts { get; set; }
+        public string FirstImage => PropertyImages == null || PropertyImages.Count ==0
+                ? "http://keypress.serveftp.net:88/MyLeasing/images/Properties/noImage.png"
+                : PropertyImages.FirstOrDefault().ImageUrl;
     }
 }

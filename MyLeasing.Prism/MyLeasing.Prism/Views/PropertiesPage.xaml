@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="MyLeasing.Prism.Views.PropertiesPage"
+             Title="{Binding Title}">
+  <StackLayout Padding="10">
+    <ListView
+      HasUnevenRows="True"
+      ItemsSource="{Binding Properties}">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <Grid>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+              </Grid.ColumnDefinitions>
+              <Image
+                Grid.Column="0"
+                Source="{Binding FirstImage}"
+                WidthRequest="100">
+              </Image>
+              <Grid 
+                Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="Auto" />
+                  <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                  <RowDefinition Height="Auto" />
+                  <RowDefinition Height="Auto" />
+                  <RowDefinition Height="Auto" />
+                  <RowDefinition Height="Auto" />
+                  <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label
+                  Grid.Row="0"
+                  Grid.Column="0"
+                  Text="Barrio: "
+                  FontAttributes="Bold"
+                  TextColor="Blue">
+                </Label>
+                <Label 
+                  Grid.Row="0"
+                       Grid.Column="1"
+                       Text="{Binding Neighborhood}"
+                  TextColor="Black">
+                </Label>
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       Text="Dirección "
+                       FontAttributes="Bold"
+                       TextColor="Blue"></Label>
+                <Label Grid.Row="1"
+                       Grid.Column="1"
+                       Text="{Binding Address}"
+                       TextColor="Black"></Label>
+                <Label Grid.Row="2"
+                       Grid.Column="0"
+                       Text="Precio: "
+                       FontAttributes="Bold"
+                       TextColor="Blue"></Label>
+                <Label Grid.Row="2"
+                       Grid.Column="1"
+                       Text="{Binding Price, StringFormat='{0:C2}'}"
+                       TextColor="Black"></Label>
+                <Label Grid.Row="3"
+                       Grid.Column="0"
+                       Text="Tipo: "
+                       FontAttributes="Bold"
+                       TextColor="Blue"></Label>
+                <Label Grid.Row="3"
+                       Grid.Column="1"
+                       Text="{Binding PropertyType}"
+                       TextColor="Black"></Label>
+                <Label Grid.Row="4"
+                       Grid.Column="0"
+                       Text="Disponible: "
+                       FontAttributes="Bold"
+                       TextColor="Blue"></Label>
+                <Switch Grid.Row="4"
+                        Grid.Column="1"
+                        IsToggled="{Binding IsAvailable}"
+                  IsEnabled="False">
+                </Switch>
+              </Grid>
+            </Grid>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+      
+    </ListView>
+  </StackLayout>
+</ContentPage>
