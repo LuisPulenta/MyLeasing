@@ -3,19 +3,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:prism="http://prismlibrary.com"
              xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:syncfusion="clr-namespace:Syncfusion.SfRotator.XForms;assembly=Syncfusion.SfRotator.XForms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="MyLeasing.Prism.Views.PropertyPage"
              Title="{Binding Title}">
   <ScrollView>
     <StackLayout Padding="5">
-      <ffimageloading:CachedImage Source="{Binding Property.FirstImage}"
-                                  LoadingPlaceholder="LoaderImage"
-                                  ErrorPlaceholder="ErrorImage"
-                                  CacheDuration="50"
-                                  RetryCount="3"
-                                  RetryDelay="600"
-                                  DownsampleToViewSize="true"
-                                  WidthRequest="300" />
+      <syncfusion:SfRotator BackgroundColor="#ececec"
+                            EnableAutoPlay="True"
+                            EnableLooping="True"
+                            HeightRequest="300"
+                            ItemsSource="{Binding ImageCollection}"
+                            NavigationDelay="5000"
+                            NavigationDirection="Horizontal"
+                            NavigationStripMode="Dots"
+                            NavigationStripPosition="Bottom">
+        <syncfusion:SfRotator.ItemTemplate>
+          <DataTemplate>
+            <ffimageloading:CachedImage Aspect="AspectFit"
+                                        CacheDuration="50"
+                                        DownsampleToViewSize="true"
+                                        ErrorPlaceholder="ErrorImage"
+                                        HeightRequest="300"
+                                        LoadingPlaceholder="LoaderImage"
+                                        RetryCount="3"
+                                        RetryDelay="600"
+                                        Source="{Binding Image}" />
+          </DataTemplate>
+        </syncfusion:SfRotator.ItemTemplate>
+      </syncfusion:SfRotator>
       <Grid Grid.Column="0">
         <Grid.ColumnDefinitions>
           <ColumnDefinition Width="Auto" />

@@ -30,7 +30,8 @@
                                             RetryCount="3"
                                             RetryDelay="600"
                                             DownsampleToViewSize="true"
-                                            WidthRequest="200" />
+                                            HeightRequest="300"
+                                            Aspect="AspectFit" />
                 <Grid>
                   <Grid.ColumnDefinitions>
                    
@@ -102,15 +103,8 @@
                   </Grid>
                 </Grid>
               </StackLayout>
-              
-              
-              
-              
-              
-             
-            </Frame>
-            
-          </ViewCell>
+             </Frame>
+           </ViewCell>
         </DataTemplate>
       </ListView.ItemTemplate>
       
