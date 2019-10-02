@@ -1,9 +1,6 @@
-﻿using MyLeasing.Common.Helpers;
-using MyLeasing.Common.Models;
-using Newtonsoft.Json;
+﻿using MyLeasing.Common.Models;
 using Prism.Commands;
 using Prism.Navigation;
-
 namespace MyLeasing.Prism.ViewModels
 {
     public class PropertyItemViewModel : PropertyResponse
@@ -22,7 +19,7 @@ namespace MyLeasing.Prism.ViewModels
             {
                 { "property", this }
             };
-            await _navigationService.NavigateAsync("PropertyPage", parameters);
+            await _navigationService.NavigateAsync("ContractsPage", parameters);
         }
     }
 }
