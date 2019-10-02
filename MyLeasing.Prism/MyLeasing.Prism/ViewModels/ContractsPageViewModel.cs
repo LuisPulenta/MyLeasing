@@ -1,4 +1,6 @@
-﻿using MyLeasing.Common.Models;
+﻿using MyLeasing.Common.Helpers;
+using MyLeasing.Common.Models;
+using Newtonsoft.Json;
 using Prism.Navigation;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -14,6 +16,8 @@ namespace MyLeasing.Prism.ViewModels
         {
             _navigationService = navigationService;
             Title = "Contracts";
+            Property = JsonConvert.DeserializeObject<PropertyResponse>(Settings.Property);
+            LoadContracts();
         }
         public PropertyResponse Property
         {
@@ -32,7 +36,7 @@ namespace MyLeasing.Prism.ViewModels
             if (parameters.ContainsKey("property"))
             {
                 Property = parameters.GetValue<PropertyResponse>("property");
-                LoadContracts();
+                //LoadContracts();
             }
         }
         private void LoadContracts()
