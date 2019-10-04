@@ -189,6 +189,9 @@
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="MailKit">
+      <Version>2.3.1.6</Version>
+    </PackageReference>
     <PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator">
       <Version>17.3.0.9-beta</Version>
     </PackageReference>
