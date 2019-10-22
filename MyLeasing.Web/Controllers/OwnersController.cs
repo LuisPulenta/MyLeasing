@@ -21,19 +21,22 @@ namespace MyLeasing.Web.Controllers
         private readonly ICombosHelper _combosHelper;
         private readonly IConverterHelper _converterHelper;
         private readonly IImageHelper _imageHelper;
+        private readonly IMailHelper _mailHelper;
 
         public OwnersController(
             DataContext context,
             IUserHelper userHelper,
             ICombosHelper combosHelper,
             IConverterHelper converterHelper,
-            IImageHelper imageHelper)
+            IImageHelper imageHelper,
+            IMailHelper mailHelper)
         {
             _dataContext = context;
             _userHelper = userHelper;
             _combosHelper = combosHelper;
             _converterHelper = converterHelper;
             _imageHelper = imageHelper;
+            _mailHelper = mailHelper;
         }
 
         // GET: Owners
@@ -100,6 +103,22 @@ namespace MyLeasing.Web.Controllers
 
                 _dataContext.Owners.Add(owner);
                 await _dataContext.SaveChangesAsync();
+
+                var myToken = await _userHelper.GenerateEmailConfirmationTokenAsync(user);
+                var tokenLink = Url.Action("ConfirmEmail", "Account", new
+                {
+                    userid = user.Id,
+                    token = myToken
+                }, protocol: HttpContext.Request.Scheme);
+
+                _mailHelper.SendMail(model.Username, "MyLeasing - Email confirmation", $"<h1>MyLeasing - Email Confirmation</h1>" +
+                    $"To allow the user, " +
+                    $"plase click in this link:</br></br><a href = \"{tokenLink}\">Confirm Email</a>");
+
+
+
+
+
                 return RedirectToAction(nameof(Index));
             }
 
