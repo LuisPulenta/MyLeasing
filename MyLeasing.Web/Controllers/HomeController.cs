@@ -142,7 +142,7 @@ namespace MyLeasing.Web.Controllers
                 await _dataContext.SaveChangesAsync();
                 return RedirectToAction(nameof(MyProperties));
             }
-
+            model.PropertyTypes = _combosHelper.GetComboPropertyTypes();
             return View(model);
         }
         [Authorize(Roles = "Owner")]
