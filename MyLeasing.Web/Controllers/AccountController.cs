@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
+using MyLeasing.Common.Models;
 using MyLeasing.Web.Data;
 using MyLeasing.Web.Data.Entities;
 using MyLeasing.Web.Helpers;
@@ -342,6 +343,5 @@ namespace MyLeasing.Web.Controllers
             ViewBag.Message = "User not found.";
             return View(model);
         }
-
     }
 }
