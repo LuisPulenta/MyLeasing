@@ -1,4 +1,4 @@
-﻿using Foundation;
+using Foundation;
 using Prism;
 using Prism.Ioc;
 using Syncfusion.SfBusyIndicator.XForms.iOS;
@@ -23,7 +23,8 @@ namespace MyLeasing.Prism.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-            global::Xamarin.Forms.Forms.Init();
+global::Xamarin.Forms.Forms.Init();
+SfRotatorRenderer.Init();
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
             new SfRotatorRenderer();
             new SfBusyIndicatorRenderer();

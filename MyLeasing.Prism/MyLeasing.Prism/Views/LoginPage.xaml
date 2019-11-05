@@ -13,17 +13,19 @@
                    AbsoluteLayout.LayoutFlags="All">
         <Image Margin="20"
                Source="logo"
-               WidthRequest="180"></Image>
-        <Label Text="Email" />
+               WidthRequest="200"></Image>
+        <Label Text="Email"
+               TextColor="Black"/>
         <Entry Keyboard="Email"
                Placeholder="Enter your email..."
                Text="{Binding Email}" />
-        <Label Text="Password" />
+        <Label Text="Password"
+               TextColor="Black"/>
         <Entry IsPassword="True"
                Placeholder="Enter your password..."
                Text="{Binding Password}" />
         
-        <Button BackgroundColor="Blue"
+        <Button BackgroundColor="Navy"
                 TextColor="White"
                 CornerRadius="23"
                 HeightRequest="46"
