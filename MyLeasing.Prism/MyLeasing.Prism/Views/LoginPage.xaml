@@ -4,6 +4,7 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              xmlns:busyindicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
              prism:ViewModelLocator.AutowireViewModel="True"
+             BackgroundColor="{StaticResource colorBackground}"
              x:Class="MyLeasing.Prism.Views.LoginPage"
              Title="{Binding Title}">
   <ScrollView>
@@ -24,9 +25,8 @@
         <Entry IsPassword="True"
                Placeholder="Enter your password..."
                Text="{Binding Password}" />
-        
-        <Button BackgroundColor="Navy"
-                TextColor="White"
+        <Button BackgroundColor="{StaticResource colorPrimary}"
+                TextColor="{StaticResource colorFontInverse}"
                 CornerRadius="23"
                 HeightRequest="46"
                 Command="{Binding LoginCommand}"
@@ -37,9 +37,9 @@
       <busyindicator:SfBusyIndicator AnimationType="Gear"
                                      AbsoluteLayout.LayoutBounds=".5,.5,.5,.5"
                                      AbsoluteLayout.LayoutFlags="All"
-                                     BackgroundColor="Transparent"
+                                     BackgroundColor="{StaticResource colorDanger}"
                                      HorizontalOptions="Center"
-                                     TextColor="Blue"
+                                     TextColor="{StaticResource colorFontInverse}"
                                      IsVisible="{Binding IsRunning}"
                                      Title="Cargando..."
                                      VerticalOptions="Center"
