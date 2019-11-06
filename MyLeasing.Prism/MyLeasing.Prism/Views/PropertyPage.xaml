@@ -55,44 +55,48 @@
                Grid.Column="0"
                Text="Barrio: "
                FontAttributes="Bold"
-               TextColor="Blue"></Label>
+               ></Label>
         <Label Grid.Row="0"
                Grid.Column="1"
                Text="{Binding Property.Neighborhood}"
-               TextColor="Black"></Label>
+               ></Label>
+     
+        
         <Label Grid.Row="1"
                Grid.Column="0"
-               Text="Dirección "
+               Text="Dirección"
                FontAttributes="Bold"
-               TextColor="Blue"></Label>
+               ></Label>
+        
         <Label Grid.Row="1"
                Grid.Column="1"
-               Text="{Binding Property.Address}"
-               TextColor="Black"></Label>
+               Text="{Binding Property.Address}">
+
+        </Label>
         <Label Grid.Row="2"
                Grid.Column="0"
                Text="Precio: "
                FontAttributes="Bold"
-               TextColor="Blue"></Label>
+               ></Label>
         <Label Grid.Row="2"
                Grid.Column="1"
                Text="{Binding Property.Price, StringFormat='{0:C2}'}"
-               TextColor="Black"></Label>
+               ></Label>
         <Label Grid.Row="3"
                Grid.Column="0"
                Text="Tipo: "
                FontAttributes="Bold"
-               TextColor="Blue"></Label>
+               ></Label>
         <Label Grid.Row="3"
                Grid.Column="1"
                Text="{Binding Property.PropertyType}"
-               TextColor="Black"></Label>
+               ></Label>
         <Label Grid.Row="4"
                Grid.Column="0"
                Text="Disponible: "
                FontAttributes="Bold"
                VerticalOptions="Center"
-               TextColor="Blue"></Label>
+               ></Label>
         <CheckBox Grid.Row="4"
                   Grid.Column="1"
                   HorizontalOptions="Start"
@@ -103,7 +107,7 @@
                Text="Estacionamiento: "
                FontAttributes="Bold"
                VerticalOptions="Center"
-               TextColor="Blue"></Label>
+               ></Label>
         <CheckBox Grid.Row="5"
                   Grid.Column="1"
                   HorizontalOptions="Start"
@@ -113,38 +117,38 @@
                Grid.Column="0"
                Text="M2: "
                FontAttributes="Bold"
-               TextColor="Blue"></Label>
+               ></Label>
         <Label Grid.Row="6"
                Grid.Column="1"
                Text="{Binding Property.SquareMeters, StringFormat='{0:N0}'}"
-               TextColor="Black"></Label>
+               ></Label>
         <Label Grid.Row="7"
                Grid.Column="0"
                Text="Habitaciones: "
                FontAttributes="Bold"
-               TextColor="Blue"></Label>
+               ></Label>
         <Label Grid.Row="7"
                Grid.Column="1"
                Text="{Binding Property.Rooms}"
-               TextColor="Black"></Label>
+               ></Label>
         <Label Grid.Row="8"
                Grid.Column="0"
                Text="Stratum: "
                FontAttributes="Bold"
-               TextColor="Blue"></Label>
+               ></Label>
         <Label Grid.Row="8"
                Grid.Column="1"
                Text="{Binding Property.Stratum, StringFormat='{0:N0}'}"
-               TextColor="Black"></Label>
+               ></Label>
         <Label Grid.Row="9"
                Grid.Column="0"
                Text="Comentarios: "
                FontAttributes="Bold"
-               TextColor="Blue"></Label>
+               ></Label>
         <Label Grid.Row="9"
                Grid.Column="1"
                Text="{Binding Property.Remarks}"
-               TextColor="Black"></Label>
+               ></Label>
       </Grid>
     </StackLayout>
   </ScrollView>

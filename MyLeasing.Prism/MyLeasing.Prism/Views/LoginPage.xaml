@@ -14,25 +14,47 @@
                    AbsoluteLayout.LayoutFlags="All">
         <Image Margin="20"
                Source="logo"
-               WidthRequest="200"></Image>
+               WidthRequest="160"></Image>
         <Label Text="Email"
-               TextColor="Black"/>
+               />
         <Entry Keyboard="Email"
                Placeholder="Enter your email..."
                Text="{Binding Email}" />
         <Label Text="Password"
-               TextColor="Black"/>
+               />
         <Entry IsPassword="True"
                Placeholder="Enter your password..."
                Text="{Binding Password}" />
-        <Button BackgroundColor="{StaticResource colorPrimary}"
-                TextColor="{StaticResource colorFontInverse}"
-                CornerRadius="23"
-                HeightRequest="46"
-                Command="{Binding LoginCommand}"
-                IsEnabled="{Binding IsEnabled}"
-                VerticalOptions="EndAndExpand"
-                Text="Login" />
+        <StackLayout HorizontalOptions="Center"
+                     Orientation="Horizontal">
+          <Label Text="Rememberme in this device"
+                 VerticalOptions="Center" />
+          <CheckBox IsChecked="{Binding IsRemember}" />
+        </StackLayout>
+        <Label HorizontalOptions="Center"
+               FontAttributes="Bold"
+               Text="Forgot your password?"
+               TextColor="{StaticResource colorPrimary}">
+          <Label.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding ForgotPasswordCommand}" />
+          </Label.GestureRecognizers>
+        </Label>
+        <StackLayout
+          Orientation="Horizontal"
+                     VerticalOptions="EndAndExpand">
+          <Button HeightRequest="46"
+                  Command="{Binding LoginCommand}"
+                  IsEnabled="{Binding IsEnabled}"
+                  Text="Login" />
+          <Button HeightRequest="46"
+                  Command="{Binding RegisterCommand}"
+                  Style="{StaticResource secondaryButton}"
+                  IsEnabled="{Binding IsEnabled}"
+                  Text="Register" />
+        </StackLayout>
+        
+        
+        
       </StackLayout>
       <busyindicator:SfBusyIndicator AnimationType="Gear"
                                      AbsoluteLayout.LayoutBounds=".5,.5,.5,.5"

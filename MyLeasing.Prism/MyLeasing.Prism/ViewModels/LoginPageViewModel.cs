@@ -15,6 +15,7 @@ namespace MyLeasing.Prism.ViewModels
         private bool _isRunning;
         private bool _isEnabled;
         private DelegateCommand _loginCommand;
+        private bool _isRemember;
 
         public LoginPageViewModel(
             INavigationService navigationService,
@@ -24,6 +25,7 @@ namespace MyLeasing.Prism.ViewModels
             _apiService = apiService;
             Title = "Login";
             IsEnabled = true;
+            IsRemember = true;
             //TODO Borras estas dos líneas:
             Email = "luis.albiazul@hotmail.com";
             Password = "123456";
@@ -49,6 +51,11 @@ namespace MyLeasing.Prism.ViewModels
         {
             get => _isEnabled;
             set => SetProperty(ref _isEnabled, value);
+        }
+        public bool IsRemember
+        {
+            get => _isRemember;
+            set => SetProperty(ref _isRemember, value);
         }
 
         private async void Login()
