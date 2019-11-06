@@ -1,4 +1,5 @@
-﻿using MyLeasing.Common.Helpers;
+﻿using System;
+using MyLeasing.Common.Helpers;
 using MyLeasing.Common.Models;
 using MyLeasing.Common.Services;
 using Newtonsoft.Json;
@@ -15,6 +16,7 @@ namespace MyLeasing.Prism.ViewModels
         private bool _isRunning;
         private bool _isEnabled;
         private DelegateCommand _loginCommand;
+        private DelegateCommand _registerCommand;
         private bool _isRemember;
 
         public LoginPageViewModel(
@@ -32,6 +34,9 @@ namespace MyLeasing.Prism.ViewModels
         }
 
         public DelegateCommand LoginCommand => _loginCommand ?? (_loginCommand = new DelegateCommand(Login));
+        public DelegateCommand RegisterCommand => _registerCommand ?? (_registerCommand = new DelegateCommand(Register));
+
+        
 
         public string Email { get; set; }
 
@@ -137,6 +142,11 @@ namespace MyLeasing.Prism.ViewModels
             IsRunning = false;
             IsEnabled = true;
 
+        }
+
+        private async void Register()
+        {
+            await _navigationService.NavigateAsync("RegisterPage");
         }
     }
 }

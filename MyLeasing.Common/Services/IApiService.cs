@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using MyLeasing.Common.Models;
+
 namespace MyLeasing.Common.Services
 {
     public interface IApiService
@@ -17,5 +18,10 @@ namespace MyLeasing.Common.Services
             string controller,
             TokenRequest request);
         Task<bool> CheckConnectionAsync(string url);
+        Task<Response<object>> RegisterUserAsync(
+            string urlBase,
+            string servicePrefix,
+            string controller,
+            UserRequest userRequest);
     }
 }
