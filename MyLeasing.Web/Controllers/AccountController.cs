@@ -285,13 +285,13 @@ namespace MyLeasing.Web.Controllers
 
             return View();
         }
-        public IActionResult RecoverPassword()
+        public IActionResult RecoverPassword2()
         {
             return View();
         }
 
         [HttpPost]
-        public async Task<IActionResult> RecoverPassword(RecoverPasswordViewModel model)
+        public async Task<IActionResult> RecoverPassword2(RecoverPasswordViewModel model)
         {
             if (ModelState.IsValid)
             {
