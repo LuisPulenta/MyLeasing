@@ -9,7 +9,7 @@
              Title="{Binding Title}">
   <StackLayout>
     <maps:Map x:Name="MyMap"
-              
+              IsShowingUser="true"
               MapType="Street" />
   </StackLayout>
 </ContentPage>
