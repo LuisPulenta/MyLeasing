@@ -23,8 +23,9 @@ namespace MyLeasing.Prism.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
-global::Xamarin.Forms.Forms.Init();
-SfRotatorRenderer.Init();
+            global::Xamarin.Forms.Forms.Init();
+            Xamarin.FormsMaps.Init();
+            SfRotatorRenderer.Init();
             FFImageLoading.Forms.Platform.CachedImageRenderer.Init();
             new SfRotatorRenderer();
             new SfBusyIndicatorRenderer();
