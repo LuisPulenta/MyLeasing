@@ -9,148 +9,135 @@
              IconImageSource="ic_action_home"
              BackgroundColor="{StaticResource colorBackground}"
              Title="{Binding Title}">
-  <ScrollView>
-    <StackLayout Padding="5">
-      <syncfusion:SfRotator BackgroundColor="#ececec"
-                            EnableAutoPlay="True"
-                            EnableLooping="True"
-                            HeightRequest="300"
-                            ItemsSource="{Binding ImageCollection}"
-                            NavigationDelay="5000"
-                            NavigationDirection="Horizontal"
-                            NavigationStripMode="Thumbnail"
-                            NavigationStripPosition="Bottom">
-        <syncfusion:SfRotator.ItemTemplate>
-          <DataTemplate>
-            <ffimageloading:CachedImage Aspect="AspectFit"
-                                        CacheDuration="50"
-                                        DownsampleToViewSize="true"
-                                        ErrorPlaceholder="ErrorImage"
-                                        HeightRequest="300"
-                                        LoadingPlaceholder="LoaderImage"
-                                        RetryCount="3"
-                                        RetryDelay="600"
-                                        Source="{Binding Image}" />
-          </DataTemplate>
-        </syncfusion:SfRotator.ItemTemplate>
-      </syncfusion:SfRotator>
-      <Grid Grid.Column="0">
-        <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="Auto" />
-          <ColumnDefinition Width="*" />
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-          <RowDefinition Height="Auto" />
-          <RowDefinition Height="Auto" />
-          <RowDefinition Height="Auto" />
-          <RowDefinition Height="Auto" />
-          <RowDefinition Height="Auto" />
-          <RowDefinition Height="Auto" />
-          <RowDefinition Height="Auto" />
-          <RowDefinition Height="Auto" />
-          <RowDefinition Height="Auto" />
-          <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <Label Grid.Row="0"
-               Grid.Column="0"
-               Text="Barrio: "
-               FontAttributes="Bold"
-               ></Label>
-        <Label Grid.Row="0"
-               Grid.Column="1"
-               Text="{Binding Property.Neighborhood}"
-               ></Label>
-     
-        
-        <Label Grid.Row="1"
-               Grid.Column="0"
-               Text="Dirección"
-               FontAttributes="Bold"
-               ></Label>
-        
-        <Label Grid.Row="1"
-               Grid.Column="1"
-               Text="{Binding Property.Address}">
-
-        </Label>
-        <Label Grid.Row="2"
-               Grid.Column="0"
-               Text="Precio: "
-               FontAttributes="Bold"
-               ></Label>
-        <Label Grid.Row="2"
-               Grid.Column="1"
-               Text="{Binding Property.Price, StringFormat='{0:C2}'}"
-               ></Label>
-        <Label Grid.Row="3"
-               Grid.Column="0"
-               Text="Tipo: "
-               FontAttributes="Bold"
-               ></Label>
-        <Label Grid.Row="3"
-               Grid.Column="1"
-               Text="{Binding Property.PropertyType}"
-               ></Label>
-        <Label Grid.Row="4"
-               Grid.Column="0"
-               Text="Disponible: "
-               FontAttributes="Bold"
-               VerticalOptions="Center"
-               ></Label>
-        <CheckBox Grid.Row="4"
-                  Grid.Column="1"
-                  HorizontalOptions="Start"
-                  IsChecked="{Binding Property.IsAvailable}"
-                  IsEnabled="False"></CheckBox>
-        <Label Grid.Row="5"
-               Grid.Column="0"
-               Text="Estacionamiento: "
-               FontAttributes="Bold"
-               VerticalOptions="Center"
-               ></Label>
-        <CheckBox Grid.Row="5"
-                  Grid.Column="1"
-                  HorizontalOptions="Start"
-                  IsChecked="{Binding Property.HasParkingLot}"
-                  IsEnabled="False"></CheckBox>
-        <Label Grid.Row="6"
-               Grid.Column="0"
-               Text="M2: "
-               FontAttributes="Bold"
-               ></Label>
-        <Label Grid.Row="6"
-               Grid.Column="1"
-               Text="{Binding Property.SquareMeters, StringFormat='{0:N0}'}"
-               ></Label>
-        <Label Grid.Row="7"
-               Grid.Column="0"
-               Text="Habitaciones: "
-               FontAttributes="Bold"
-               ></Label>
-        <Label Grid.Row="7"
-               Grid.Column="1"
-               Text="{Binding Property.Rooms}"
-               ></Label>
-        <Label Grid.Row="8"
-               Grid.Column="0"
-               Text="Stratum: "
-               FontAttributes="Bold"
-               ></Label>
-        <Label Grid.Row="8"
-               Grid.Column="1"
-               Text="{Binding Property.Stratum, StringFormat='{0:N0}'}"
-               ></Label>
-        <Label Grid.Row="9"
-               Grid.Column="0"
-               Text="Comentarios: "
-               FontAttributes="Bold"
-               ></Label>
-        <Label Grid.Row="9"
-               Grid.Column="1"
-               Text="{Binding Property.Remarks}"
-               ></Label>
-      </Grid>
-    </StackLayout>
-  </ScrollView>
+  <StackLayout  Padding="5"
+                >
+    <ScrollView>
+      <StackLayout>
+        <syncfusion:SfRotator BackgroundColor="#ececec"
+                              EnableAutoPlay="True"
+                              EnableLooping="True"
+                              HeightRequest="300"
+                              ItemsSource="{Binding ImageCollection}"
+                              NavigationDelay="5000"
+                              NavigationDirection="Horizontal"
+                              NavigationStripMode="Thumbnail"
+                              NavigationStripPosition="Bottom">
+          <syncfusion:SfRotator.ItemTemplate>
+            <DataTemplate>
+              <ffimageloading:CachedImage Aspect="AspectFit"
+                                          CacheDuration="50"
+                                          DownsampleToViewSize="true"
+                                          ErrorPlaceholder="ErrorImage"
+                                          HeightRequest="300"
+                                          LoadingPlaceholder="LoaderImage"
+                                          RetryCount="3"
+                                          RetryDelay="600"
+                                          Source="{Binding Image}" />
+            </DataTemplate>
+          </syncfusion:SfRotator.ItemTemplate>
+        </syncfusion:SfRotator>
+        <Grid Grid.Column="0">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+          </Grid.RowDefinitions>
+          <Label Grid.Row="0"
+                 Grid.Column="0"
+                 Text="Barrio: "
+                 FontAttributes="Bold"></Label>
+          <Label Grid.Row="0"
+                 Grid.Column="1"
+                 Text="{Binding Property.Neighborhood}"></Label>
+          <Label Grid.Row="1"
+                 Grid.Column="0"
+                 Text="Dirección"
+                 FontAttributes="Bold"></Label>
+          <Label Grid.Row="1"
+                 Grid.Column="1"
+                 Text="{Binding Property.Address}"></Label>
+          <Label Grid.Row="2"
+                 Grid.Column="0"
+                 Text="Precio: "
+                 FontAttributes="Bold"></Label>
+          <Label Grid.Row="2"
+                 Grid.Column="1"
+                 Text="{Binding Property.Price, StringFormat='{0:C2}'}"></Label>
+          <Label Grid.Row="3"
+                 Grid.Column="0"
+                 Text="Tipo: "
+                 FontAttributes="Bold"></Label>
+          <Label Grid.Row="3"
+                 Grid.Column="1"
+                 Text="{Binding Property.PropertyType}"></Label>
+          <Label Grid.Row="4"
+                 Grid.Column="0"
+                 Text="Disponible: "
+                 FontAttributes="Bold"
+                 VerticalOptions="Center"></Label>
+          <CheckBox Grid.Row="4"
+                    Grid.Column="1"
+                    HorizontalOptions="Start"
+                    IsChecked="{Binding Property.IsAvailable}"
+                    IsEnabled="False"></CheckBox>
+          <Label Grid.Row="5"
+                 Grid.Column="0"
+                 Text="Estacionamiento: "
+                 FontAttributes="Bold"
+                 VerticalOptions="Center"></Label>
+          <CheckBox Grid.Row="5"
+                    Grid.Column="1"
+                    HorizontalOptions="Start"
+                    IsChecked="{Binding Property.HasParkingLot}"
+                    IsEnabled="False"></CheckBox>
+          <Label Grid.Row="6"
+                 Grid.Column="0"
+                 Text="M2: "
+                 FontAttributes="Bold"></Label>
+          <Label Grid.Row="6"
+                 Grid.Column="1"
+                 Text="{Binding Property.SquareMeters, StringFormat='{0:N0}'}"></Label>
+          <Label Grid.Row="7"
+                 Grid.Column="0"
+                 Text="Habitaciones: "
+                 FontAttributes="Bold"></Label>
+          <Label Grid.Row="7"
+                 Grid.Column="1"
+                 Text="{Binding Property.Rooms}"></Label>
+          <Label Grid.Row="8"
+                 Grid.Column="0"
+                 Text="Stratum: "
+                 FontAttributes="Bold"></Label>
+          <Label Grid.Row="8"
+                 Grid.Column="1"
+                 Text="{Binding Property.Stratum, StringFormat='{0:N0}'}"></Label>
+          <Label Grid.Row="9"
+                 Grid.Column="0"
+                 Text="Comentarios: "
+                 FontAttributes="Bold"></Label>
+          <Label Grid.Row="9"
+                 Grid.Column="1"
+                 Text="{Binding Property.Remarks}"></Label>
+        </Grid>
+      </StackLayout>
+    </ScrollView>
+    <Button
+      Command="{Binding EditPropertyCommand}"
+      Text="Edit Property">
+    </Button>
+  </StackLayout>
+  
+  
   
 </ContentPage>
