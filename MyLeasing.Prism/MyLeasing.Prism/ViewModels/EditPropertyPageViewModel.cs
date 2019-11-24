@@ -2,6 +2,7 @@
 using MyLeasing.Common.Models;
 using MyLeasing.Common.Services;
 using Newtonsoft.Json;
+using Prism.Commands;
 using Prism.Navigation;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -12,12 +13,14 @@ namespace MyLeasing.Prism.ViewModels
 {
     public class EditPropertyPageViewModel : ViewModelBase
     {
+        private readonly INavigationService _navigationService;
         private readonly IApiService _apiService;
         private PropertyResponse _property;
         private ImageSource _imageSource;
         private bool _isRunning;
         private bool _isEnabled;
         private bool _isEdit;
+        private DelegateCommand _editPropertyCommand;
 
         private ObservableCollection<PropertyTypeResponse> _propertyTypes;
         private PropertyTypeResponse _propertyType;
@@ -25,9 +28,10 @@ namespace MyLeasing.Prism.ViewModels
         private ObservableCollection<Stratum> _stratums;
         private Stratum _stratum;
 
-
+        public DelegateCommand EditPropertyCommand => _editPropertyCommand ?? (_editPropertyCommand = new DelegateCommand(EditProperty));
         public EditPropertyPageViewModel(INavigationService navigationService, IApiService apiService) : base(navigationService)
         {
+            _navigationService = navigationService;
             _apiService = apiService;
             IsEnabled = true;
             
@@ -146,6 +150,15 @@ namespace MyLeasing.Prism.ViewModels
             {
                 PropertyType = PropertyTypes.FirstOrDefault(pt => pt.Name == Property.PropertyType);
             }
+        }
+        private async void EditProperty()
+        {
+            var parameters = new NavigationParameters
+    {
+        { "property", _property }
+    };
+
+            await _navigationService.NavigateAsync("EditProperty", parameters);
         }
 
     }
