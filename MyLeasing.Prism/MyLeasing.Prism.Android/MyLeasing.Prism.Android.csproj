@@ -148,7 +148,9 @@
   <ItemGroup>
     <AndroidResource Include="Resources\Drawable\splash.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <AndroidResource Include="Resources\Drawable\ic_action_add_circle.png" />
+  </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\mipmap-xhdpi\ic_launcher.png" />
   </ItemGroup>
